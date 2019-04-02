@@ -1,0 +1,35 @@
+{% extends 'my_admin/base.html' %}
+    {% block title %} Index {% endblock %}
+    {% block css %}{% endblock %}
+    {% block content %}
+    <section class="content-header">
+      <h1>
+        Xem thông tin
+      </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+             <strong>Danh sách</strong>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+
+      {% for x in data %}
+        <ul>
+            <li><h4><a href="{% url 'my_admin:info' x.id %}">{{ x.username }}</a></h4></li>
+        </ul>
+        {% endfor %}
+        <a href="{% url 'my_admin:index' %}"><button class="btn btn-info">Quay về</button>  </a>
+
+    </section>
+    <!-- /.content -->
+    <div class="clearfix"></div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'my_admin/base.html' %}
+    {% block title %} Thay đổi thông tin {% endblock %}
+    {% block css %}{% endblock %}
+    {% load static %}
+    {% block content %}
+    <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+             <strong>Sửa thông tin </strong>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+
+    <form id="change-form" method="POST">
+        {% csrf_token %}
+        <h3>Họ và tên: <input type="text" name="ten" value="{{ user.fullname }}"> </h3>
+        <h3>Số điện thoại: <input type="text" name="sđt" value="{{ user.sdt }}"> </h3>
+        <h3>Email: <input type="text" name="email" value="{{ user.email }}"> </h3>
+
+        <h3><a href="{% url 'my_admin:index' %}"> Quay về</a></h3>
+    </form>
+    <h3><button id="change" class="btn btn-primary" id="form"> gửi </button> </h3>
+    </section>
+    <!-- /.content -->
+    <div class="clearfix"></div>
+    {% endblock %}
+
+
+    {% block js %}
+    <script src="{% static 'chung/custom/ChangeInfo.js' %}"></script>
+    <script src="{% static 'sweetalert2.all.min.js' %}"></script>
+    {% endblock %}

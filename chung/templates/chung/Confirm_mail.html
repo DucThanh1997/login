@@ -1,0 +1,6 @@
+
+{% autoescape off %}
+Hi {{ user.username }},
+Nhấn vào link để xác nhận tài khoản và đăng nhập luôn
+http://{{ domain }}{% url 'chung:activate' uidb64=uid token=token %}
+{% endautoescape %}

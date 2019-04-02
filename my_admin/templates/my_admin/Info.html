@@ -1,0 +1,34 @@
+{% extends 'my_admin/base.html' %}
+    {% block title %} Chi tiết {% endblock %}
+    {% block css %}{% endblock %}
+    {% block content %}
+    <section class="content-header">
+      <h1>
+        Thông tin
+      </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+             <strong><strong>Thông tin của {{ user.username }} </strong></strong>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+    <h3> Email: {{ user.email }}</h3>
+    <h3> Số điện thoại: {{ user.sdt }}</h3>
+    <h3> Họ và tên: {{ user.fullname }}</h3>
+    <h3> Username: {{ user.username }}</h3>
+    <h3><a href="{% url 'my_admin:change' user.id %}"> Sửa </a></h3>
+    <h3><a href="{% url 'my_admin:index' %}"> Quay về </a></h3>
+    <h3><a href="{% url 'my_admin:delete' user.id %}"> Xóa </a></h3>
+    </section>
+    <!-- /.content -->
+    <div class="clearfix"></div>
+    {% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'user/base.html' %}
+    {% block title %} Xem thông tin {% endblock %}
+    {% block css %}{% endblock %}
+    {% load static %}
+    {% block content %}
+    <section class="content-header">
+      <h1>
+        Thông tin
+      </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+             <strong>Thông tin của {{ user.username }} </strong>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+
+    <h3> Họ tên: {{ user.fullname }}</h3>
+    <h3> Số điện thoại: {{ user.sdt }}</h3>
+    <h3> Email: {{ user.email }}</h3>
+
+    <h3><a href="{% url 'chung:changeinfo' %}"> Sửa </a></h3>
+    <h3><a href="{% url 'user:index' %}"> Quay về </a></h3>
+
+    </section>
+    <!-- /.content -->
+    <div class="clearfix"></div>
+    {% endblock %}
